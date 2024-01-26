@@ -21,13 +21,20 @@ const ListItemStyle = {
   width: w
 }
 
-const ListItem = ({ item }) => {
+const ListItem = ({ item, source }) => {
+
 
   const ctx = useContext(DataContext)
 
+  const action = () => {
+    if(source === 'cart') ctx.removeFromCart(item)
+    if(source === 'list') ctx.setCurrentItem(item)
+  }
+
+
   return(
     <TouchableOpacity style={ListItemStyle}
-                      onPress={ () => ctx.setCurrentItem(item)}
+                      onPress={ () => action()}
       >
       <View style={{ flex: 1}}>
         <Image url={item.image} size={'small'} />
