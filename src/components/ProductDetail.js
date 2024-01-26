@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Dimensions, View, ImageBackground } from 'react-native'
 import DataContext from '../context/DataContext'
-
+import Label from './Label'
 const ProductDetail = () => {
 
   const ctx = useContext(DataContext)
@@ -13,7 +13,13 @@ const ProductDetail = () => {
                      resizeMode={'cover'}
                      style={{ height: 300, width: w }}>
 
-
+      <View style={{ height: 300,
+                     width: w, padding: 40,
+                     display: 'flex', justifyContent: 'flex-end',
+                     backgroundColor: 'rgba(0,0,0,0.3)' }}>
+        <Label text={ctx.currentItem.title } size={'large'} color={'white'}/>
+        <Label text={ctx.currentItem.status } size={'medium'} color={'white'}/>
+      </View>
     </ImageBackground>
   )
 

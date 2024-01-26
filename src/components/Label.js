@@ -12,10 +12,10 @@ const LabelStyle = {
   }
 }
 
-const Label = ({ text, size }) => {
+const Label = ({ text, size, color = "#000" }) => {
 
   return(
-    <Text style={LabelStyle[size]}>{ text }</Text>
+    <Text style={ [LabelStyle[size], { color: color  }] }>{ text }</Text>
   )
 
 }
